@@ -6,7 +6,8 @@ from flask import Flask, Response, request
 import crypto
 from fingerprint import FingerPrint
 
-UPLOAD_FOLDER = "tmp/pictures"
+ROOT_DIR = os.path.dirname(__file__)
+UPLOAD_FOLDER = "pictures"
 
 application = Flask(__name__)
 
@@ -14,7 +15,7 @@ application = Flask(__name__)
 def get_wallet():
     file = request.files['finger']
     filename = UPLOAD_FOLDER + "/" + file.filename
-    file.save(os.getcwd() + "/" + filename)
+    file.save(ROOT_DIR + "/" + filename)
     finger_module = FingerPrint(filename)
     seed_phrase = finger_module.get_seed_phrase()
     private_key, public_key = crypto.generate_wallet(seed_phrase)
