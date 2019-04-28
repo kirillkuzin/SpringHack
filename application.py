@@ -6,7 +6,7 @@ from flask import Flask, Response, request
 import crypto
 from fingerprint import FingerPrint
 
-UPLOAD_FOLDER = "spring-hack/pictures"
+UPLOAD_FOLDER = "tmp/pictures"
 
 application = Flask(__name__)
 
