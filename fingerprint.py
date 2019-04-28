@@ -22,7 +22,7 @@ class FingerPrint:
             image_size[1] - image_size[1] / 4
         )
         cropped_image_file = image_file.crop(image_center_box_coords)
-        cropped_image_file.save("test.png")
+        cropped_image_file.save(self.filename)
 
     def _get_bits_for_seed_phrase(self):
         image_bits = Bits(filename=self.filename)
